@@ -6,7 +6,7 @@ RUN apt-get update && apt-get -y install \
 																 inetutils-inetd \
 																 tftpd-hpa && \
 		rm -rf /var/lib/apt/lists/*
-COPY ./netboot /srv/tftp
+# COPY ./netboot /srv/tftp
 
 RUN echo "tftp    dgram   udp4    wait    root    /usr/sbin/in.tftpd /usr/sbin/in.tftpd -s /srv/tftp" >> /etc/inetd.conf && \
 		echo 'RUN_DAEMON="yes"' >> /etc/default/tftpd-hpa && \

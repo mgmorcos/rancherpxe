@@ -8,7 +8,7 @@ services:
     image: config-drive
     restart: always
     volumes:
-      - {/your/cloud-init/data}:/www
+      - ./rancher-cloud-init.yaml:/www/rancher-cloud-init.yaml
     ports:
       - "80:80/tcp"
     hostname: config-drive
@@ -19,7 +19,7 @@ services:
     image: ipxe
     restart: always
     volumes:
-      - {/your/boot-cfg/data}:/srv/tftp
+      - ./rancher-loader.pxe:/srv/tftp/rancher-loader.pxe
     ports:
       - "69:69/udp"
     hostname: ipxe
